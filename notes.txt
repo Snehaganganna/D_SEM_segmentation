@@ -1,0 +1,29 @@
+Wandb student 
+ - Is there wandb student offer ?
+ - Then login to wandb with studnet account etc.. ( do the steps )
+
+Learning rate scheduler - Cosine , Linear ( High )
+
+Print the model (High Pro )
+    - Just Unet model
+    - Unet with meta (META=YES)
+    - Unet with meta (Meta=NO)
+    Then compare just unet model with Unet with meta=No if they are same , then you can delete just unet and just other models
+    How to compare? 
+    1. Claude - Tell me the differemce
+    2. Diffchecker
+
+Batch_norm implementation
+
+Multiple losses - Try and combine 
+print trial config for debugging
+
+wanddb sweep 
+    Hyperopt importnce 
+
+https://optuna-dashboard.readthedocs.io/en/latest/getting-started.html
+
+
+Hyper paramter importance ( low prior)
+
+

@@ -1,0 +1,9 @@
+Activate conda shell
+
+conda activate "C:\Users\Sneha Ganganna\miniconda3\envs\segment"
+
+
+
+run main file
+
+python main.py

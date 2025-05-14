@@ -1,0 +1,14 @@
+params:
+  model_name : "UnetMeta"
+  fusion_type : "concat"
+
+data_params:
+  metadata_dim: 4
+  img_size: [960, 960]
+
+
+paths:
+  dataset_base_path: 'D:/TEAM/Sneha/segmentation/Alloy_SEM_image&mask_random_stratified_960'
+  output_folder: 'output/UnetMeta_100_trails_optuna'
+
+  

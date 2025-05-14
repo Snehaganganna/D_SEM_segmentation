@@ -1,0 +1,20 @@
+params:
+  model_name: 'Unet'
+  batch_size: 16
+  learning_rate: 0.0001
+  encoder: resnet50
+  augment: true
+  epochs: 100
+  patience: 30
+  fusion_type: concat
+  
+
+data_params:
+  img_size: [960, 960]
+  augment: True 
+  metadata_dim: 0
+
+paths:
+  dataset_base_path: 'D:/TEAM/Sneha/segmentation/Alloy_SEM_image&mask_random_stratified_960'
+  output_folder: 'output/unet_for_testing'
+  
