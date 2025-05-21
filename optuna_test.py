@@ -80,7 +80,7 @@ def test(params, data_params, paths, exp_folder):
     
 if __name__ == '__main__':
     out_folder = "output" 
-    exp_name = "dk_normal"
+    exp_name = "Unet_50trails_optuna"
     
     exp_folder = os.path.join(out_folder, exp_name)
     

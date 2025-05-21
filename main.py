@@ -36,7 +36,7 @@ os.makedirs(os.path.join(output_folder, 'results'), exist_ok=True)
 with open(os.path.join(output_folder, 'config.yaml'), 'w') as yaml_file:
     yaml.dump(config, yaml_file)
 
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
 
 # model = UnetMeta(

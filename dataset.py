@@ -165,7 +165,7 @@ def get_data_loaders(base_dir, batch_size, augment, img_size , num_workers=0,pin
         
         print(f"\n{split} split:")
         print(f"Found {len(image_files)} original images")
-        print(f"Total dataset size after augmentation: {len(dataset)}")
+        # print(f"Total dataset size after augmentation: {len(dataset)}")
         
         loaders[split] = DataLoader(
             dataset,

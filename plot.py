@@ -4,9 +4,8 @@ import os
 
 
 def plot_training_history(history, save_dir='.'):
-
     """Plot training and validation metrics"""
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(20, 5))
     
     # Plot loss
     ax1.plot(history['train_loss'], label='Training Loss')
@@ -25,6 +24,15 @@ def plot_training_history(history, save_dir='.'):
     ax2.set_title('Training and Validation F1 Score')
     ax2.legend()
     ax2.grid(True)
+    
+    # Plot learning rate if available
+    if 'learning_rate' in history and history['learning_rate']:
+        ax3.plot(history['learning_rate'], 'g-')
+        ax3.set_xlabel('Epoch')
+        ax3.set_ylabel('Learning Rate')
+        ax3.set_title('Learning Rate Schedule')
+        ax3.set_yscale('log')
+        ax3.grid(True)
     
     plt.tight_layout()
     plt.savefig(os.path.join(save_dir, 'training_history.png'))

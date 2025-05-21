@@ -25,7 +25,7 @@ def test(params, data_params, paths, exp_folder=None):
         print("Please run training first or specify the correct experiment folder.")
         return
     
-    model = load_model(model_path, device, params)
+    model = load_model(model_path, device, params, data_params)
     
     # Get data loaders (same as in training)
     train_loader, val_loader, test_loader = get_data_loaders(
@@ -83,7 +83,7 @@ def test(params, data_params, paths, exp_folder=None):
     
 if __name__ == '__main__':
     exp_folder = "output" 
-    exp_name = "Optuna_100_trials_Unet"
+    exp_name = "SegFormer_5thset"
     
     # Load parameters from YAML file
     with open('config.yaml', 'r') as file:

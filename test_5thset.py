@@ -7,6 +7,7 @@ from torchvision import transforms
 import matplotlib.pyplot as plt
 
 from utils import load_model
+
 import yaml
 
 def test_images(model_path, input_dir, output_dir, params, img_size=(960, 960)):
@@ -172,7 +173,7 @@ if __name__ == '__main__':
     
     # Define paths
     model_path = r"D:\TEAM\Sneha\D_SEM_segmentation\output\unet_for_testing\best_model_f1.pth"
-    input_dir = r"D:\TEAM\Sneha\D_SEM_segmentation\test_images"
+    input_dir = r"D:\TEAM\Sneha\D_SEM_segmentation\test_images_old"
     output_dir = r"D:\TEAM\Sneha\D_SEM_segmentation\test_results"
     
     # Test the model on new images

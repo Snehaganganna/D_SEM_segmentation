@@ -72,12 +72,21 @@ if __name__ == "__main__":
     print(f"wandb_kwargs: {wandb_kwargs}")
     wandbc = WeightsAndBiasesCallback(wandb_kwargs=wandb_kwargs, as_multirun=False)
     
-    # Create study with custom pruner that's more tolerant of failed trials
-    pruner = optuna.pruners.MedianPruner(n_startup_trials=100, n_warmup_steps=5)
+    #  pruner code
+    pruner = optuna.pruners.HyperbandPruner(
+        min_resource=1,        # Minimum number of epochs to run
+        max_resource=100,      # Maximum number of epochs (should match your num_epochs)
+        reduction_factor=3     # Reduction factor (default is 3)
+    )
+
     study = optuna.create_study(direction="maximize", pruner=pruner)
     
+    #  Create study with custom pruner that's more tolerant of failed trials
+    # pruner = optuna.pruners.MedianPruner(n_startup_trials=100, n_warmup_steps=5)
+    # study = optuna.create_study(direction="maximize", pruner=pruner)
+    
     try:
-        study.optimize(objective, n_trials=100, callbacks=[wandbc])
+        study.optimize(objective, n_trials=50, callbacks=[wandbc])
     except KeyboardInterrupt:
         print("Optimization stopped by user.")
     

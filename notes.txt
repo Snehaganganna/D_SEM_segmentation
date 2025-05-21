@@ -1,10 +1,12 @@
-Wandb student 
+print model, input out size *DONE
+
+Wandb student *DONE
  - Is there wandb student offer ?
  - Then login to wandb with studnet account etc.. ( do the steps )
 
-Learning rate scheduler - Cosine , Linear ( High )
+Learning rate scheduler - Cosine , Linear ( High ) DONE
 
-Print the model (High Pro )
+Print the model (High Pro ) DONE...just unet model with Unet with meta=No are functionaly same
     - Just Unet model
     - Unet with meta (META=YES)
     - Unet with meta (Meta=NO)
@@ -15,7 +17,7 @@ Print the model (High Pro )
 
 Batch_norm implementation
 
-Multiple losses - Try and combine 
+Multiple losses - Try and combine  DONE
 print trial config for debugging
 
 wanddb sweep 
@@ -23,6 +25,7 @@ wanddb sweep
 
 https://optuna-dashboard.readthedocs.io/en/latest/getting-started.html
 
+Optuna..hyperband pruning DONE
 
 Hyper paramter importance ( low prior)
 

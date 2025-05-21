@@ -86,12 +86,17 @@ def trainer(trial, device, data_params, params, paths, save_dir='.'):
    
     
         optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
+        
+        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+            optimizer, mode='min', factor=0.5, patience=10, threshold=0.01, min_lr=1e-6, verbose=True
+        )
             
         history = {
             'train_loss': [], 'val_loss': [],
             'train_f1': [], 'val_f1': [],
             'train_precision': [], 'val_precision': [],
-            'train_recall': [], 'val_recall': []
+            'train_recall': [], 'val_recall': [],
+            'learning_rate': []
         }
 
         best_val_loss = float('inf')
@@ -183,7 +188,16 @@ def trainer(trial, device, data_params, params, paths, save_dir='.'):
             for k in val_metrics:
                 val_metrics[k] /= len(val_loader)
             
+            # Step the scheduler based on validation loss
+            scheduler.step(val_loss)
+            
+            # Track current learning rate
+            current_lr = optimizer.param_groups[0]['lr']
+            history['learning_rate'].append(current_lr)
+            
             print(val_metrics)
+            
+            
 
             # Update history
             history['train_loss'].append(train_loss)
@@ -229,7 +243,8 @@ def trainer(trial, device, data_params, params, paths, save_dir='.'):
         #         'val_recall': val_metrics['recall'],
         #         'val_iou': val_metrics['iou'],
         #         'val_accuracy': val_metrics['accuracy'],
-        #         'val_f2_score': val_metrics['f2_score']
+        #         'val_f2_score': val_metrics['f2_score'],
+        #         'learning_rate': current_lr
         #     })
             
         # wandbrun.finish()

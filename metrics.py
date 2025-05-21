@@ -60,10 +60,10 @@ class JaccardDiceLoss(nn.Module):
 def calculate_test_metrics(model, test_loader, device):
     """Calculate comprehensive metrics on test dataset"""
     #criterion = smp.losses.DiceLoss(smp.losses.MULTICLASS_MODE, from_logits=True)
-    criterion = smp.losses.FocalLoss(smp.losses.MULTICLASS_MODE)
+    # criterion = smp.losses.FocalLoss(smp.losses.MULTICLASS_MODE)
     #criterion = CombinedLoss(dice_weight=0.5, focal_weight=0.5)
-    #criterion = JaccardDiceLoss(jaccard_weight=0.5, dice_weight=0.5)
-    #criterion = smp.losses.JaccardLoss(smp.losses.MULTICLASS_MODE, from_logits=True, smooth=0.0, eps=1e-07)
+    # criterion = JaccardDiceLoss(jaccard_weight=0.5, dice_weight=0.5)
+    criterion = smp.losses.JaccardLoss(smp.losses.MULTICLASS_MODE, from_logits=True, smooth=0.0, eps=1e-07)
     
     total_loss = 0
     test_metrics = {
